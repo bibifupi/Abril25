@@ -1,0 +1,26 @@
+<h1>Lista de Productos desde Back</h1>
+<table>
+  <tr>
+    <th>Id_producto</th>
+    <th>Nombre_producto</th>
+    <th>Precio_Unitario</th>
+    <th>Unidades_Stock</th>
+    <th>Categoría</th>
+  </tr>
+  @for(elemento of productos;track elemento.idProducto){
+  <tr>
+    <td>{{elemento.idProducto}}</td>
+    <td>{{elemento.nombreProducto}}</td>
+    <td>{{elemento.precioUnitario}}</td>
+    <td>{{elemento.unidadesStock}}</td>
+    <td>{{elemento.categoria}}</td>
+  </tr>
+  }
+</table>
+<button routerLink="alta">
+  Alta de un nuevo producto</button>
+<button routerLink="eliminar">
+  Eliminar un producto</button>
+<button routerLink="actualizar">
+  Actualizar un producto</button>
+<router-outlet></router-outlet>

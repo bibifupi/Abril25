@@ -1,0 +1,21 @@
+<h1>Actualizar producto</h1>
+
+<div>
+
+   <label>Nombre producto: </label>  
+   <input type="text" [(ngModel)]="e1.nombreProducto" placeholder="Escriba nombre del producto">
+   <br>
+   <label>Id producto: </label>
+   <input type="text" [(ngModel)]="e1.idProducto" placeholder="Escriba el id del producto">
+   <br>
+   <label>Precio Unitario: </label>
+   <input type="number" [(ngModel)]="e1.precioUnitario" placeholder="Escriba el precio del producto"><br>
+   <label>Unidades en Stock: </label>
+   <input type="number" [(ngModel)]="e1.unidadesStock" placeholder="Escriba el nº de unidades del producto"><br>
+   <label>Categoria: </label>
+   <input type="number" [(ngModel)]="e1.categoria" placeholder="Escriba el nº de unidades del producto"><br>
+
+
+   <button (click)="actualizarProducto()">Actualizar</button>
+
+</div>
