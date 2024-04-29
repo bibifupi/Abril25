@@ -17,15 +17,17 @@ export class ListaProductoComponent implements OnInit {
   constructor(private servicio: ProductoService) { }
 
   ngOnInit(): void {
+    this.servicio.productoCambio
+    .subscribe((data)=>{this.productos=data})
 
     this.servicio.listar()
-      .subscribe(datos => {
-        this.productos = datos;
-      })
+       .subscribe(datos => {
+          this.productos = datos;
 
+       })
   }
   recibirAviso(listaActualizada: Observable<Producto[]>) {
-    listaActualizada.subscribe(data => this.productos = data);
+    //listaActualizada.subscribe(data => this.productos = data);
     this.servicio.listar()
       .subscribe(datos => {
         this.productos = datos;

@@ -1,21 +1,29 @@
 <h1>Alta producto</h1>
 
 <div>
+   <form [formGroup]="form" #frmEmpleado="ngForm" (ngSubmit)="operar()">
+    
+        @if(edicion){
+            <label for="">Id producto</label>
+             <input placeholder="Id producto" required [readOnly]="true" 
+             formControlName="idProducto">
+        }
+        <label for="">Id producto:</label>
+        <input placeholder="id Producto" required formControlName="idProducto"><br>
+        <label for=""> Nombre producto:</label>
+        <input placeholder="nombre Producto" required formControlName="nombreProducto"><br>
+        <label for=""> Precio Unitario:</label>
+        <input placeholder="precioUnitario" required formControlName="precioUnitario"><br>
+        <label for=""> Unidades en Stock:</label>
+        <input placeholder="unidades Stock" required formControlName="unidadesStock"><br>
+        <label for=""> Categoria:</label>
+        <input placeholder="categoria" required formControlName="categoria"><br><br>
+       
+        <button type="submit" [disabled]="frmEmpleado.invalid" class="btn btn-primary" style="margin-right: 10px;">Aceptar</button>
+        <button type="button" routerLink="" class="btn btn-primary" style="margin-right: 10px;">Cancelar</button>
 
-   <label>Nombre producto: </label>  
-   <input type="text" [(ngModel)]="e1.nombreProducto" placeholder="Escriba nombre del producto">
-   <br>
-   <label>Id producto: </label>
-   <input type="text" [(ngModel)]="e1.idProducto" placeholder="Escriba el id del producto">
-   <br>
-   <label>Precio Unitario: </label>
-   <input type="number" [(ngModel)]="e1.precioUnitario" placeholder="Escriba el precio del producto"><br>
-   <label>Unidades en Stock: </label>
-   <input type="number" [(ngModel)]="e1.unidadesStock" placeholder="Escriba el nº de unidades del producto"><br>
-   <label>Categoria: </label>
-   <input type="number" [(ngModel)]="e1.categoria" placeholder="Escriba el nº de unidades del producto"><br>
+    </form>
 
-
-   <button (click)="altaProducto()">Dar de alta</button>
+   
 
 </div>

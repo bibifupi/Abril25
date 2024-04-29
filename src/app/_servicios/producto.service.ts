@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Producto } from '../_modelo/Producto';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,11 @@ export class ProductoService {
   productoCambio = new Subject<Producto[]>();
 
   listar(): Observable<Producto[]> {
-    return this.http.get<Producto[]>(this.url);
+    return this.http.get<Producto[]>(this.url)
+    .pipe(
+      map(data=>{return data.sort((a,b)=> a.idProducto-b.idProducto);
+    })
+    );
   }
   alta(p: Producto) {
     return this.http.post(this.url, p);
@@ -21,6 +25,9 @@ export class ProductoService {
   }
   actualizar(p: Producto) {
     return this.http.put(this.url, p);
+  }
+  listarPorId(id:number){
+    return this.http.get<Producto>(`${this.url}/${id}`);
   }
 
   constructor(private http: HttpClient) { }

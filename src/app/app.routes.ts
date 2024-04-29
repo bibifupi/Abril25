@@ -5,9 +5,11 @@ import { EliminarProductoComponent } from './eliminar-producto/eliminar-producto
 import { ActualizarProductoComponent } from './actualizar-producto/actualizar-producto.component';
 
 export const routes: Routes = [
-    { path: '', component: ListaProductoComponent },
-    { path: 'alta', component: AltaProductoComponent },
-    { path: 'eliminar', component: EliminarProductoComponent },
-    { path: 'actualizar', component: ActualizarProductoComponent },
-
+    {
+        path: '', component: ListaProductoComponent, children: [
+            { path: 'alta', component: AltaProductoComponent },
+            { path: 'eliminar', component: EliminarProductoComponent },
+            { path: 'actualizar', component: ActualizarProductoComponent }
+        ]
+    },
 ];
